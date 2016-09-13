@@ -11,19 +11,25 @@ class RandomGroups:
         self.nouns = []
         self.groups = []
         self.students = []
+        self.teams = []
+        self.logo_api_url = 'http://logo.clearbit.com/'
         self.run_setup_functions()
+        self.logos = []
 
     def run_setup_functions(self):
         """ Functions to be run during initilization """
         self.set_adjectives()
         self.set_nouns()
         self.set_students()
+        self.set_logos()
         random.shuffle(self.students)
         self.student_list_copy = copy.deepcopy(self.students)
         self.set_group()
 
     def set_adjectives(self):
-        with open('adjectives.txt') as inputAdjectives:
+        filepath = os.path.join(os.path.dirname(__file__),
+                "../data/adjectives.txt")
+        with open(filepath) as inputAdjectives:
             self.adjectives = inputAdjectives
             """ Strip Off Newlines"""
             self.adjectives = [line.rstrip('\n').split(',') for line in self.adjectives]
@@ -31,7 +37,9 @@ class RandomGroups:
             self.adjectives = [item for sublist in self.adjectives for item in sublist ]
 
     def set_nouns(self):
-        with open('nouns.txt') as inputNouns:
+        filepath = os.path.join(os.path.dirname(__file__),
+                "../data/nouns.txt")
+        with open(filepath) as inputNouns:
             self.nouns = inputNouns
             """ Strip Off Newlines"""
             self.nouns = [line.rstrip('\n').split(',') for line in self.nouns]
@@ -39,8 +47,16 @@ class RandomGroups:
             self.nouns = [item for sublist in self.nouns for item in sublist ]
 
     def set_students(self):
-        with open('students.json', 'r') as f:
+        filepath = os.path.join(os.path.dirname(__file__),
+                "../data/students.json")
+        with open(filepath, 'r') as f:
             self.students = json.load(f)
+
+    def set_logos(self):
+        filepath = os.path.join(os.path.dirname(__file__),
+                "../data/logos.json")
+        with open(filepath, 'r') as f:
+            self.logos = json.load(f)
 
     def set_group(self):
         """ Main function to gather the groups """
@@ -86,8 +102,19 @@ class RandomGroups:
         for group in self.groups:
             adj = random.choice(self.adjectives).capitalize()
             noun = random.choice(self.nouns).capitalize()
+            logo = random.choice(self.logos)
+            self.logos.remove(logo)
+            query = '?size=50'
+            logo_url = self.logo_api_url + logo + query
+            team_name = "{} {}".format(adj, noun)
+            team = {
+                    "name" : team_name,
+                    "users" : group,
+                    "logo" : logo_url
+            }
+            self.teams.append(team)
             str_group = ", ".join(group)
-            teams = "Team {0} {1}: {2}".format(adj, noun, str_group)
+            teams = "{}: {}".format(team_name, str_group)
             self.teamed_groups.append(teams)
 
 

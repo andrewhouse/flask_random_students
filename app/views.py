@@ -1,10 +1,20 @@
 from os import path
-from flask import render_template
+from flask import render_template, request
+from wtforms import Form, TextField, TextAreaField, validators, StringField, IntegerField, SubmitField
 
 from app import app
 from app.lib.random_groups import RandomGroups
 
-@app.route("/")
+class PerGroupForm(Form):
+    per_group = IntegerField('Per Group:', validators=[validators.required()])
+
+@app.route("/", methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    form = PerGroupForm(request.form)
+    if request.method == 'POST':
+        per_group = form.data['per_group'] or 2
+        groups = RandomGroups(per_group)
+    else:
+        groups = RandomGroups()
+    return render_template('index.html', groups=groups.teams, form=form)
 
