@@ -2,8 +2,8 @@ from os import path
 from flask import render_template, request
 from wtforms import Form, TextField, TextAreaField, validators, StringField, IntegerField, SubmitField
 
-from app import app
 from app.lib.random_groups import RandomGroups
+from app import app
 
 class PerGroupForm(Form):
     per_group = IntegerField('Per Group:', validators=[validators.required()])
