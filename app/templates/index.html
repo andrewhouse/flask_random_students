@@ -6,7 +6,7 @@
         <div class="row">
           {% for group in groups %}
             <div class="col-md-4">
-              <div class="panel panel-primary text-center">
+              <div class="panel panel-{{group["color"]}} text-center">
                 <div class="panel-heading">
                   <h4>
                     <span class='label'>
@@ -18,8 +18,8 @@
                 <div class="panel-body">
                   <ul class='list-group'>
                     {% for user in group["users"] %}
-                      <li class='list-group-item list-group-item-success'>
-                        <p><strong>{{user}}</strong></p>
+                    <li class='list-group-item well'>
+                      <p class='text-{{group["color"]}}'><strong>{{user}}</strong></p>
                       </li>
                     {% endfor %}
                   </ul>
