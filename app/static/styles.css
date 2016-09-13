@@ -1,0 +1,120 @@
+.list-group-item-orange{
+  background-color: #FFA500;
+}
+
+.panel-orange {
+  border-color: #FFA500; 
+}
+.panel-orange > .panel-heading {
+  background-color: #FFA500;
+  border-color: #FFA500; 
+}
+.panel-orange > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #FFA500; 
+}
+.panel-orange > .panel-heading .badge {
+  background-color: #FFA500; 
+}
+.panel-orange > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #FFA500; 
+}
+
+
+/* BLACK */
+/**************************************** */
+.list-group-item-black{
+  background-color: #000000;
+}
+
+.panel-black {
+  border-color: #000; 
+}
+.panel-black > .panel-heading {
+  color: #808080;
+  background-color: #000;
+  border-color: #000; 
+}
+.panel-black > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #000; 
+}
+.panel-black > .panel-heading .badge {
+  background-color: #000; 
+}
+.panel-black > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #000; 
+}
+
+/* PURPLE */
+/**************************************** */
+
+.list-group-item-purple{
+  background-color: #402455;
+}
+
+.panel-purple {
+  border-color: #402455; 
+}
+.panel-purple > .panel-heading {
+  color: #9D8CA6;
+  background-color: #402455;
+  border-color: #402455; 
+}
+.panel-purple > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #402455; 
+}
+.panel-purple > .panel-heading .badge {
+  background-color: #402455; 
+}
+.panel-purple > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #402455; 
+}
+
+/* LIGHT GREEN */
+/**************************************** */
+
+.list-group-item-light-green{
+  background-color: #196F3D;
+}
+
+.panel-light-green {
+  border-color: #196f3d; 
+}
+.panel-light-green > .panel-heading {
+  color: #ABEBC6  ;
+  background-color: #196f3d;
+  border-color: #196f3d;
+}
+.panel-light-green > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #196f3d; 
+}
+.panel-light-green > .panel-heading .badge {
+  background-color: #196f3d; 
+}
+.panel-light-green > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #196f3d; 
+}
+
+/* red */
+/**************************************** */
+
+.list-group-item-red{
+  background-color: red;
+}
+
+.panel-red {
+  border-color: red; 
+}
+.panel-red > .panel-heading {
+  color: #F1948A;
+  background-color: red;
+  border-color: red;
+}
+.panel-red > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: red; 
+}
+.panel-red > .panel-heading .badge {
+  background-color: red; 
+}
+.panel-red > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: red; 
+}

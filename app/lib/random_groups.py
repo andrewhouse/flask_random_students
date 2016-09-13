@@ -13,7 +13,7 @@ class RandomGroups:
         self.students = []
         self.teams = []
         self.logo_api_url = 'http://logo.clearbit.com/'
-        self.team_colors = ['primary', 'success', 'info', 'warning', 'danger']
+        self.team_colors = ['primary', 'success', 'info', 'warning', 'danger', 'orange', 'black', 'purple', 'light-green', 'red']
         self.run_setup_functions()
         self.logos = []
 
@@ -105,6 +105,8 @@ class RandomGroups:
             noun = random.choice(self.nouns).capitalize()
             logo = random.choice(self.logos)
             self.logos.remove(logo)
+            color = random.choice(self.team_colors)
+            self.team_colors.remove(color)
             query = '?size=50'
             logo_url = self.logo_api_url + logo + query
             team_name = "{} {}".format(adj, noun)
@@ -112,7 +114,7 @@ class RandomGroups:
                     "name" : team_name,
                     "users" : group,
                     "logo" : logo_url,
-                    "color" : random.choice(self.team_colors)
+                    "color" : color
             }
             self.teams.append(team)
             str_group = ", ".join(group)
