@@ -8,6 +8,7 @@ from app import app
 class PerGroupForm(Form):
     per_group = IntegerField('Per Group:', validators=[validators.required()])
 
+#Index Route
 @app.route("/", methods=['GET', 'POST'])
 def index():
     form = PerGroupForm(request.form)
